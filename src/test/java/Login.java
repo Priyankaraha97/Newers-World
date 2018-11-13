@@ -3,8 +3,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
@@ -26,7 +24,7 @@ public class Login {
         driver1.findElement(By.xpath("//*[text()='Login']")).click();
         driver1.findElement(By.linkText("Attendance")).click();
         JavascriptExecutor jse = (JavascriptExecutor) driver1;
-        jse.executeScript("window.scrollBy(0,1500)");
+        jse.executeScript("window.scrollBy(0,500)");
 //        WebDriverWait wait=new WebDriverWait(driver1,5000);
 //        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='form-control m-b']")));
         Thread.sleep(5000);
@@ -36,12 +34,16 @@ public class Login {
        // wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("startDate")));
         Thread.sleep(5000);
         driver1.findElement(By.id("startDate")).click();
-        driver1.findElement(By.xpath("//div[8]//tr[4]/td[7]")).click();
+        driver1.findElement(By.xpath("//div[8]//tr[5]/td[7]")).click();
         // wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='btn btn-sm btn-primary submitTimeType']")));
         Thread.sleep(5000);
         driver1.findElement(By.xpath("//*[@class='btn btn-sm btn-primary submitTimeType']")).click();
-        System.setProperty("webdriver.gecko.driver", "C:\\Users\\Priyanka Raha\\Drivers\\geckodriver.exe");
-        WebDriver driver = new FirefoxDriver();
+        WebDriverWait wait=new WebDriverWait(driver1,100);
+        driver1.close();
+
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Priyanka Raha\\Drivers\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.get("http://newers-world.qa2.tothenew.net/");
         driver.findElement(By.name("username")).sendKeys("sunil.tripathy@tothenew.com");
         driver.findElement(By.name("password")).sendKeys("newer@123");
@@ -59,11 +61,11 @@ public class Login {
         select1.selectByVisibleText("100");
         driver.findElement(By.xpath("//*[@type='search']")).click();
         driver.findElement(By.xpath("//*[@type='search']")).sendKeys("Rahul Khurana");
-
         List<WebElement> elements = driver.findElements(By.xpath("//*[@aria-controls='DataTables_Table_0']//span"));
         Iterator<WebElement> itr = elements.iterator();
         while (itr.hasNext()) {
             itr.next().click();
                   }
+        driver.close();
     }
 }
