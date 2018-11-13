@@ -34,6 +34,21 @@ public class MyRequest {
             System.out.println("Sorting is done Using: " +sorting.get(j).getText());
             sorting.get(j).click();
         }
+        //for Cancel Button
+        List<WebElement> cancel = driver1.findElements(By.xpath("//*[@id=\"myRequestTable\"]//a[@title='Cancel']"));
+        for (int i = 0; i < cancel.size(); i++) {
+            jse.executeScript("window.scrollBy(0,200)");
+            System.out.println("Element clicked: " +cancel.get(i).getText());
+            cancel.get(i).click();
+        }
+        //for Edit
+        List<WebElement> edit = driver1.findElements(By.xpath("//*[@id=\"myRequestTable\"]//a[@title='Edit']"));
+        for (int i = 0; i < edit.size(); i++) {
+            jse.executeScript("window.scrollBy(0,200)");
+            edit.get(i).click();
+            driver1.findElement(By.xpath("//*[@id=\"myRequestTable\"]//button[@title=\"Withdraw Cancellation\"]")).click();
+        }
+        //for search
         driver1.findElement(By.xpath("//*[@type='search']")).click();
         driver1.findElement(By.xpath("//*[@type='search']")).sendKeys("Extra Working");
         driver1.findElement(By.xpath("//*[@id=\"myRequestTable_next\"]/a")).click();
