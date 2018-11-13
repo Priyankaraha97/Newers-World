@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public class MyRequest {
         WebDriver driver1 = new ChromeDriver();
         driver1.manage().window().maximize();
         driver1.get("http://newers-world.qa2.tothenew.net/");
-        driver1.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+        driver1.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver1.findElement(By.name("username")).sendKeys("sunil.tripathy@tothenew.com");
         driver1.findElement(By.name("password")).sendKeys("newer@123");
         driver1.findElement(By.xpath("//*[text()='Login']")).click();
@@ -43,5 +44,7 @@ public class MyRequest {
             System.out.println("Element clicked: " +elements.get(i).getText());
             elements.get(i).click();
         }
+        jse.executeScript("window.scrollBy(0,-200)");
+        driver1.findElement(By.xpath("//*[@id=\"requestTab\"]//div//i")).click();
     }
 }
