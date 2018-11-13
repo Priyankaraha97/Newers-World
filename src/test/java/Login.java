@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class Login {
     @Test
     public void suite() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Priyanka Raha\\Drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/test/java/Files/chromedriver.exe");
         WebDriver driver1 = new ChromeDriver();
         driver1.manage().window().maximize();
         driver1.get("http://newers-world.qa2.tothenew.net/");

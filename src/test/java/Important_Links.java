@@ -13,7 +13,7 @@ import static org.testng.Assert.assertEquals;
 public class Important_Links {
     @Test
     public void suite() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Priyanka Raha\\Drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/test/java/Files/chromedriver.exe");
         WebDriver driver1 = new ChromeDriver();
         driver1.get("http://newers-world.qa2.tothenew.net/");
         driver1.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);

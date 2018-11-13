@@ -13,7 +13,7 @@ public class Attendance {
     @BeforeSuite
     public void suit1(){
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Priyanka Raha\\Drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/test/java/Files/chromedriver.exe");
         webdriver= new ChromeDriver();
 
     }
